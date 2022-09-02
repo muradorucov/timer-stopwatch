@@ -36,7 +36,7 @@ btnStart.addEventListener("click", (event) => {
         timeMinute = 0;
         timeSecond = 0;
         timeMilliSecond = 0;
-        timer.innerHTML = "00:00:00";
+        timer.innerHTML = "00:00:000";
         btnReset.disabled = true;
         clearInterval(_tick)
     })
