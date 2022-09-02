@@ -5,7 +5,7 @@ let btnStop = document.querySelector("#stop-button");
 let btnReset = document.querySelector("#reset-button");
 let timeMinute = 0;
 let timeSecond = 0;
-let timeminsecond = 0;
+let timeMilliSecond = 0;
 
 
 
@@ -17,28 +17,25 @@ btnStart.addEventListener("click", (event) => {
     btnStop.disabled = false;
     btnReset.disabled = false;
     var _tick = setInterval(function () {
-        timeminsecond++;
+        timeMilliSecond++;
 
-        if (timeminsecond == 999) {
-            timeminsecond = 00;
+        if (timeMilliSecond == 99) {
+            timeMilliSecond = 00;
             timeSecond++;
         }
         if (timeSecond == 59) {
-            timeminsecond = 00;
+            timeSecond = 00;
             timeMinute++;
-        }
-        if (timeSecond < 10) {
-            let san = ":0" + timeSecond;
         }
         let san = timeSecond < 10 ? "0" + timeSecond : timeSecond
         let min = timeMinute < 10 ? "0" + timeMinute : timeMinute
-        let minSan = timeminsecond < 10 ? "0" + timeminsecond : timeminsecond
-        timer.innerHTML = min + ":" + san + ":" + minSan;
-    }, 1)
+        let minSan = timeMilliSecond < 10 ? "0" + timeMilliSecond : timeMilliSecond
+        timer.innerHTML = min + ":" + san + ":" + minSan +"0";
+    }, 10)
     btnReset.addEventListener("click", (event) => {
         timeMinute = 0;
         timeSecond = 0;
-        timeminsecond = 0;
+        timeMilliSecond = 0;
         timer.innerHTML = "00:00:00";
         btnStart.disabled = false;
         btnStop.disabled = true;
