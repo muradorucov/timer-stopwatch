@@ -15,7 +15,7 @@ let timeMilliSecond = 0;
 btnStart.addEventListener("click", (event) => {
     btnStart.disabled = true;
     btnStop.disabled = false;
-    btnReset.disabled = false;
+    btnReset.disabled = true;
     var _tick = setInterval(function () {
         timeMilliSecond++;
 
@@ -37,13 +37,12 @@ btnStart.addEventListener("click", (event) => {
         timeSecond = 0;
         timeMilliSecond = 0;
         timer.innerHTML = "00:00:00";
-        btnStart.disabled = false;
-        btnStop.disabled = true;
         btnReset.disabled = true;
         clearInterval(_tick)
     })
     btnStop.addEventListener("click", (event) => {
         btnStop.disabled = true;
+        btnReset.disabled = false;
         btnStart.disabled = false;
         clearInterval(_tick)
     })
