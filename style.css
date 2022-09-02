@@ -1,3 +1,10 @@
+body{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #stopwatch {
     display: grid;
     width: 250px;
